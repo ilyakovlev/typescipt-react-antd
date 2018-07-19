@@ -1,0 +1,47 @@
+@main: aqua;
+@other: crimson;
+@appbar_height: 64px;
+
+
+.body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.ant-breadcrumb {
+  margin: 16px 16px;
+  text-align: left;
+}
+
+.ant-menu {
+  margin: 7px;
+}
+
+.@{layout-prefix-cls}{
+  &-header {
+    margin: 0;
+    padding: 0;
+    text-align: -webkit-center;
+    background-color: transparent;
+    .ant-menu {
+      background-color: transparent;
+      border-bottom: none;
+    }
+  }
+
+  &-content {
+    text-align: -webkit-center;
+    background-color: @main;
+
+    .container {
+      width: 100%;
+      text-align: center;
+      min-height: 700px;
+    }
+  }
+  &-footer {
+    text-align: -webkit-center;
+    background-color: @other;
+  }
+}
