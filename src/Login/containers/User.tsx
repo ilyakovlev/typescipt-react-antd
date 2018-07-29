@@ -1,18 +1,17 @@
-import {connect} from 'react-redux'
-import {bindActionCreators, Dispatch} from 'redux'
-import * as userActions from '../_user/actions';
-import {State} from '../_user/reducer';
-import {UserActions} from "../_user/actions";
+import { connect } from 'react-redux'
+import { bindActionCreators, Dispatch } from 'redux'
+import { UserState } from '../_user/types';
+import * as UserActions from '../_user/actions';
+import Login from '../Login';
 
-
-const mapStateToProps = (state: State) => ({
+const mapStateToProps = (state: UserState) => ({
     userData: state.user
 });
 
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     actions: bindActionCreators(
-        userActions,
+        UserActions,
         dispatch
     )
 });
@@ -20,4 +19,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)()
+)(Login)

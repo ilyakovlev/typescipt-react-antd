@@ -1,0 +1,75 @@
+@import "~antd/es/style/themes/default";
+
+@appbar_height: 64px;
+
+
+.body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+#root {
+  height: inherit;
+}
+
+.@{ant-prefix} {
+  &-breadcrumb {
+    margin: 16px 16px;
+    text-align: left;
+  }
+
+  &-layout {
+    height: inherit;
+
+    &-header {
+      width: 100%;
+      text-align: -webkit-center;
+      background-color: transparent;
+      box-shadow: 1px 1px 1px 1px rgba( 0, 0, 0, 0.15);
+    }
+
+    &-content {
+      padding: 0 50px;
+      text-align: -webkit-center;
+    }
+
+    &-footer {
+      width: 100%;
+      text-align: -webkit-center;
+      box-shadow: 1px 1px 1px 1px rgba( 0, 0, 0, 0.25);
+    }
+  }
+
+  &-card {
+    height: 375px;
+    max-width: 400px;
+    margin-bottom: 50px;
+  }
+
+  &-login {
+
+    &-form {
+      max-width: 300px;
+      min-height: 225px;
+
+      &-button {
+        width: 100%;
+      }
+
+      &-forgot {
+        float: right;
+      }
+
+      &-remember {
+        float: left;
+      }
+    }
+  }
+
+  &-menu {
+    margin: 8px;
+    background-color: transparent;
+    border-bottom: none;
+  }
+}

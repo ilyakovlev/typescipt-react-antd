@@ -1,44 +1,37 @@
-import * as fromActions from "./actions";
+import { Reducer } from "redux";
+import { UserActionTypes, UserState } from "./types";
 
 
-export interface State {
+const initialState: UserState = {
     user: {
-        error: Error,
-        loading: boolean,
-        data: JSON | null
-    } | {}
-}
-
-
-export const initialState: State = {
-    user:{
-        error: false,
         data: null,
-        loading: false,
+        error: null,
+        loading: false
     }
 };
 
-export default (state = initialState, action: fromActions.Actions): State => {
+
+const reducer: Reducer<UserState> = (state = initialState, action) => {
     switch (action.type) {
 
         // Login
-        case fromActions.ActionTypes.LOGIN_REQUEST: {
+        case UserActionTypes.LOGIN_REQUEST: {
             return Object.assign(state, {
                 user: {
                     loading: true
                 }
             })
         }
-        case fromActions.ActionTypes.LOGIN_SUCCESS: {
+        case UserActionTypes.LOGIN_SUCCESS: {
             const {payload} = action;
             return Object.assign(state, {
                 user: {
                     loading: false,
                     data: payload,
-                },
+                }
             })
         }
-        case fromActions.ActionTypes.LOGIN_ERROR: {
+        case UserActionTypes.LOGIN_ERROR: {
             const {payload} = action;
             return Object.assign(state, {
                 user: {
@@ -49,24 +42,23 @@ export default (state = initialState, action: fromActions.Actions): State => {
         }
 
         // Logout
-        case fromActions.ActionTypes.LOGOUT_REQUEST: {
+        case UserActionTypes.LOGOUT_REQUEST: {
             return Object.assign(state, {
                 user: {
                     loading: true
                 }
             })
         }
-        case fromActions.ActionTypes.LOGOUT_SUCCESS: {
+        case UserActionTypes.LOGOUT_SUCCESS: {
             const {payload} = action;
             return Object.assign(state, {
                 user: {
                     loading: false,
                     data: payload
-
                 }
             })
         }
-        case fromActions.ActionTypes.LOGOUT_ERROR: {
+        case UserActionTypes.LOGOUT_ERROR: {
             const {payload} = action;
             return Object.assign(state, {
                 user: {
@@ -78,4 +70,7 @@ export default (state = initialState, action: fromActions.Actions): State => {
         default:
             return state
     }
-}
+};
+
+
+export default reducer;

@@ -1,23 +1,24 @@
-import {SagaIterator} from "redux-saga";
-import {call, put, takeLatest} from "redux-saga/effects";
+import { SagaIterator } from "redux-saga";
+import { call, put, takeLatest } from "redux-saga/effects";
+import { UserActionTypes } from "./types";
 import * as api from "../_api/user";
-import {Actions} from "./actions";
-import * as fromAction from "./actions";
 
 
-function* login(action : Actions): SagaIterator {
-    yield put({type: fromAction.ActionTypes.LOGIN_WAITING});
-    const {data,error} = yield call(api.login, action.payload, action.payload);
+function* login(action: any): SagaIterator {
+    yield put({type: UserActionTypes.LOGIN_WAITING});
 
-    if(data){
-        yield put({type: fromAction.ActionTypes.LOGIN_SUCCESS, payload: data});
-    }else {
-        yield put({type: fromAction.ActionTypes.LOGIN_ERROR, payload: error})
+    const {data, error} = yield call(api.login, action.payload.login, action.payload.password);
+
+    if (data) {
+        yield put({type: UserActionTypes.LOGIN_SUCCESS, payload: data});
+    } else {
+        yield put({type: UserActionTypes.LOGIN_ERROR, payload: error})
     }
 }
 
-export function* UserSagas(){
+
+export default function* UserSagas() {
     yield [
-        takeLatest(fromAction.ActionTypes.LOGOUT_REQUEST, login),
+        takeLatest(UserActionTypes.LOGIN_REQUEST, login),
     ]
 }
