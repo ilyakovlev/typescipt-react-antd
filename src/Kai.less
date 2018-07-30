@@ -1,0 +1,63 @@
+/**
+    Mixin:
+      Rounded corners
+ */
+.rounded (@radius: 1px) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+
+/**
+    Mixin:
+      Shadows
+ */
+.shadowed (@x: 0px, @y: 0px, @blur: 0px, @color: rgba(0, 0, 0, 0.5)) {
+  box-shadow: @x @y @blur rgba(0, 0, 0, @color);
+  -moz-box-shadow: @x @y @blur rgba(0, 0, 0, @color);
+  -webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @color);
+}
+
+
+/**
+    Mixin:
+      Animations
+ */
+.transition (@prop: all, @time: 1s, @ease: linear) {
+  transition: @prop @time @ease;
+  -moz-transition: @prop @time @ease;
+  -webkit-transition: @prop @time @ease;
+}
+
+
+/**
+    Mixin:
+      Linear gradient
+ */
+.gradient (@ang: left, @from: rgba(255,255,255, .4), @to: rgba(0,0,0, .4)) {
+  background-color: @from;
+  background-image: -webkit-linear-gradient(@ang, @from, @to);
+  background-image: -moz-linear-gradient(@ang, @from, @to);
+  background-image: -o-linear-gradient(@ang, @from, @to);
+  background-image: -ms-linear-gradient(@ang, @from, @to);
+  background-image: linear-gradient(@ang, @from, @to);
+}
+
+
+
+
+/**
+    Styles
+ */
+
+.body  {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+
+  & > div {
+    height: inherit;
+  }
+}
+

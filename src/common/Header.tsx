@@ -11,7 +11,7 @@ interface InterfaceLinks {
 
 export default ({links, active}: InterfaceLinks): JSX.Element => (
     <Layout.Header>
-        <Menu mode="horizontal" selectedKeys={[links.indexOf(active).toString()]}>
+        <Menu mode="horizontal" className="ant-header-menu" selectedKeys={[links.indexOf(active).toString()]}>
             {
                 links.map((link, index) =>
                     <Menu.Item key={index}>

@@ -30,8 +30,8 @@ class Login extends React.Component<FormComponentProps & any, User> {
                     </Col>
                 </Row>
                 <Row type="flex" align="middle" justify="center" >
-                    <Col xs={{span: 20}} md={{span: 8}} >
-                        <Card title="Login Page">
+                    <Col xs={{span: 22}} lg={{span: 8}} >
+                        <Card title="Login Page" className="ant-login-card">
                             <Form onSubmit={this.handleSubmit} className="ant-login-form">
                                 <Form.Item>
                                     {
@@ -83,6 +83,6 @@ class Login extends React.Component<FormComponentProps & any, User> {
 
 }
 
-const Templated = Template(Login);
+const Templated = Template(Login)('Home');
 
 export default Form.create()(Templated);
