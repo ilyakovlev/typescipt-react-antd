@@ -2,26 +2,62 @@
 
 .@{ant-prefix} {
   &-breadcrumb {
-    margin: 16px 16px;
+    margin: 16px 0;
     text-align: left;
-  }
-
-  &-header-menu {
-    margin: 8px;
-    background-color: transparent;
-    border-bottom: none;
   }
 
   &-about {
     margin-bottom: 50px;
   }
 
+  &-menu-horizontal > &-menu-item {
+    margin-top: 8px;
+    float: right;
+  }
+
+  &-menu {
+    background-color: transparent;
+    height: 100vh;
+  }
+
   &-layout {
+    //background: #ff6e7f;
+    //background: -webkit-linear-gradient(to right, rgba(191, 233, 255, .5), rgba(255, 110, 127, .3));
+    //background: linear-gradient(to right, rgba(191, 233, 255, .5), rgba(255, 110, 127, .3));
+
+    &-sider {
+      background-color: transparent;
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.15);
+    }
+
+    &-sider-pad {
+      visibility: hidden;
+      height: 64px;
+    }
+
     &-header {
       width: 100%;
       text-align: -webkit-center;
       background-color: transparent;
-      box-shadow: 1px 1px 1px 1px rgba( 0, 0, 0, 0.15);
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.15);
+
+      &-menu {
+        background-color: transparent;
+        border-bottom: none;
+      }
+
+      &-trigger {
+        padding: 0;
+        float: left;
+        font-size: 18px;
+        line-height: 64px;
+        cursor: pointer;
+        transition: color .3s;
+
+        &:hover {
+          color: #1890ff;
+        }
+      }
     }
 
     &-content {
@@ -32,7 +68,8 @@
     &-footer {
       width: 100%;
       text-align: -webkit-center;
-      box-shadow: 1px 1px 1px 1px rgba( 0, 0, 0, 0.25);
+      background-color: transparent;
+      box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.15);
     }
   }
 
@@ -41,6 +78,8 @@
       height: 375px;
       max-width: 400px;
       margin-bottom: 50px;
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.15);
+      //background-color: transparent;
     }
 
     &-form {
